@@ -1,0 +1,18 @@
+ALGORITHM insertion_sort(arr: ARRAY_OF INTEGER[n])
+// This procedure sorts an array in ascending order using Insertion Sort.
+VAR
+    i, j, key: INTEGER;
+BEGIN
+    FOR i FROM 1 TO n - 1 DO
+        key := arr[i]; // Current element to be inserted into the sorted part
+        j := i - 1; // Index of the last element in the sorted part
+
+        // Move elements greater than key one position ahead of their current position
+        WHILE (j >= 0 AND arr[j] > key) DO
+            arr[j + 1] := arr[j];
+            j := j - 1;
+        END_WHILE
+
+        arr[j + 1] := key; // Place the key in its correct position in the sorted part
+    END_FOR
+END
